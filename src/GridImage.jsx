@@ -12,14 +12,14 @@ const GridImage = () => {
   useEffect( () => {
     const getImage = async () => {
       if(resultadoConsulta.busqueda === '') return // Si la busuqeda es vacia no hagas nada
-      const key = '16135895-712e1c843ff49eec9d6a39720'
-      let imagenesPorPagina = 30
-      let url = `https://pixabay.com/api/?key=${key}&q=${resultadoConsulta.busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`
+      let url = `${process.env.REACT_APP_API_URL}/?key=${process.env.REACT_APP_API_KEY}&q=${resultadoConsulta.busqueda}&per_page=${process.env.REACT_APP_RESULT_IMAGE}&page=${paginaActual}`
       
       const response = await fetch(url)
+      console.log(response)
       const data = await response.json()
+      console.log(data)
       setImages(data.hits)
-      setTotalPaginas(Math.ceil(data.totalHits / imagenesPorPagina)) // Calculo la paginacion dividiendo el total de imagenes entre las imagenes que muestro por paginas
+      setTotalPaginas(Math.ceil(data.totalHits / process.env.REACT_APP_RESULT_IMAGE)) // Calculo la paginacion dividiendo el total de imagenes entre las imagenes que muestro por paginas
       setTotalImagenes(data.totalHits)
 
       // Scrool smooth para cuando aprete prev o next suba al inicio del grid de imagenes
@@ -46,7 +46,7 @@ const GridImage = () => {
     {
       resultadoConsulta.busqueda ?
       images.length === 0 
-      ? <h4 className="grid-images--title">No hay resultados</h4> 
+      ? <h4 className="grid-images--title">No se encontraron resultados, intenta buscar otra palabra</h4> 
       :
       <>
       <div className="ed-grid grid-images">

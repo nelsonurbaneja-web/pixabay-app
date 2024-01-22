@@ -1,13 +1,22 @@
+.main-header-container {
+  width: 100;
+  position: relative;
+
+  background: rgba(#000,.9);
+}
 .main-header {
   width: 100%;
   height: $header-height;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: none;
-  background: rgba(#000,.9);
+ 
   position: relative;
   padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .main-header--logo {
   margin: 0;

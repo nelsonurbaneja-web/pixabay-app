@@ -1,10 +1,16 @@
+.main-banner-container {
+  width: 100;
+  position: relative;
+  background: rgba(#000,.9);
+}
 .main-banner {
   width: 100%;
   padding: 6rem 0 6rem;
-  background: rgba(#000,.9);
+  background-color: transparent;
   // margin-top: $header-height;
   text-align: center;
-  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .img-banner-fondo { 
   position: absolute;

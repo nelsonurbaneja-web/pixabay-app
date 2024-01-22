@@ -16,11 +16,13 @@ const App = () => {
     setBusqueda(p)
   }
   return (
-    <div className="ed-container">
+    <div>
       <Header />
       <Banner pasarPalabraAPrincipal={pasarPalabraAPrincipal}/>
       <BusquedaContext.Provider value={{busqueda: busqueda}}>
-        <GridImage />
+        <div className="ed-container">
+          <GridImage />
+        </div>
       </BusquedaContext.Provider>
       <Footer />
     </div>
